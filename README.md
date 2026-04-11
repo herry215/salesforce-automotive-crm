@@ -107,3 +107,25 @@ Salesforce는 단일 트랜잭션에서 사용할 수 있는 리소스에 제한
 ## 시스템 아키텍처
 
 <img src="docs/screenshots/architecture.png" width="600"/>
+
+## AI 기능 — Einstein Prompt Builder 연동
+
+Salesforce Einstein Prompt Builder와 Apex, LWC를 연동하여 A/S 완료 후 고객 피드백을 AI가 자동 분석하고 요약합니다.
+
+### 구현 흐름
+
+1. **Einstein Prompt Builder** — Flex 템플릿 생성, Claude Sonnet 4.6 모델 선택
+2. **AiSummaryController.cls** — Apex에서 ConnectApi.EinsteinLLM으로 프롬프트 템플릿 호출
+3. **surveyAiSummary LWC** — 레코드 페이지 진입 시 자동으로 AI 요약 생성 및 표시
+
+### Einstein Prompt Builder 설정
+
+![Einstein Prompt Builder](docs/screenshots/einstein-prompt-builder.png)
+
+### Apex + LWC 코드 구조
+
+![AI Code Structure](docs/screenshots/ai-code-structure.png)
+
+### CS 레코드 페이지 AI 요약 결과
+
+![AI Summary Result](docs/screenshots/ai-summary-result.png)
