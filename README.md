@@ -27,12 +27,13 @@
 - 고객 만족도 자동 설문 발송 (Batch Apex)
 
 ## 프로젝트 구조
-force-app/main/default/
-├── classes/        # Apex 클래스
-├── triggers/       # Apex Trigger
-├── lwc/            # Lightning Web Component
-├── objects/        # Custom Object 정의
-└── flows/          # Flow 자동화
+
+    force-app/main/default/
+    ├── classes/        # Apex 클래스
+    ├── triggers/       # Apex Trigger
+    ├── lwc/            # Lightning Web Component
+    ├── objects/        # Custom Object 정의
+    └── flows/          # Flow 자동화
 
 ## 진행 상황
 
