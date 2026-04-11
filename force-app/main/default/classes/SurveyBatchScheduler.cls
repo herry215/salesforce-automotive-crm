@@ -7,9 +7,9 @@ public class SurveyBatchScheduler implements Database.Batchable<SObject>, Schedu
     Date sevenDaysAgo = Date.today().addDays(-7);
     return Database.getQueryLocator(
       [
-        SELECT Id, VehicleId__c, Status__c
+        SELECT Id, VehicleId__c
         FROM ServiceAppointment__c
-        WHERE Status__c = '완료' AND AppointmentDate__c = :sevenDaysAgo
+        WHERE Status__c = '완료' AND AppointmentDate__c <= :sevenDaysAgo
       ]
     );
   }
