@@ -128,4 +128,4 @@ Salesforce Einstein Prompt Builder와 Apex, LWC를 연동하여 A/S 완료 후 �
 
 ### CS 레코드 페이지 AI 요약 결과
 
-![AI Summary Result](docs/screenshots/ai-summary-result.png)
+![AI Summary Result](docs/screenshots/ai-summary-result1.png)
