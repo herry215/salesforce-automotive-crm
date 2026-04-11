@@ -46,32 +46,6 @@
 | 5    | LWC 고객 대시보드      | ✅ 완료 |
 | 6    | 외부 API 연동          | ⏳ 예정 |
 
-## 화면 및 동작 확인
-
-### 고객 차량 대시보드 (LWC)
-
-![Vehicle Dashboard](docs/screenshots/vehicle-dashboard.png)
-
-### Vehicle 오브젝트 필드 구조
-
-![Vehicle Fields](docs/screenshots/vehicle-fields.png)
-
-### Apex 클래스 목록
-
-![Apex Classes](docs/screenshots/apex-classes.png)
-
-### 고객 만족도 설문 목록
-
-![Customer Surveys List](docs/screenshots/customer-surveys-list.png)
-
-### 설문 상세 화면 (Batch 자동 생성)
-
-![Customer Survey Detail](docs/screenshots/customer-survey-detail.png)
-
-## 시스템 아키텍처
-
-![Architecture](docs/screenshots/architecture.png)
-
 ## 기술적 의사결정
 
 ### Trigger Handler 패턴 적용
@@ -116,3 +90,29 @@ for (ServiceAppointment__c appt : scope) {
 }
 insert surveys;
 ```
+
+## 화면 및 동작 확인
+
+### 고객 차량 대시보드 (LWC)
+
+![Vehicle Dashboard](docs/screenshots/vehicle-dashboard.png)
+
+### Vehicle 오브젝트 필드 구조
+
+![Vehicle Fields](docs/screenshots/vehicle-fields.png)
+
+### Apex 클래스 목록
+
+![Apex Classes](docs/screenshots/apex-classes.png)
+
+### 고객 만족도 설문 목록
+
+![Customer Surveys List](docs/screenshots/customer-surveys-list.png)
+
+### 설문 상세 화면 (Batch 자동 생성)
+
+![Customer Survey Detail](docs/screenshots/customer-survey-detail.png)
+
+## 시스템 아키텍처
+
+<img src="docs/screenshots/architecture.png" width="600"/>
