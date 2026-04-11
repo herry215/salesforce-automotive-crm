@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AppointmentId__c</fullName>
+    <label>A/S 예약</label>
+    <type>Lookup</type>
+    <referenceTo>ServiceAppointment__c</referenceTo>
+    <relationshipName>CustomerSurveys</relationshipName>
+    <relationshipLabel>고객 설문 목록</relationshipLabel>
+    <externalId>false</externalId>
+</CustomField>

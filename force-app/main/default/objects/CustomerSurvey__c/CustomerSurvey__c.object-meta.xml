@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Customer Survey</label>
+    <pluralLabel>Customer Surveys</pluralLabel>
+    <nameField>
+        <label>Survey Name</label>
+        <type>AutoNumber</type>
+        <displayFormat>CS-{0000}</displayFormat>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <description>A/S 완료 후 고객 만족도 설문 응답을 관리하는 오브젝트</description>
+</CustomObject>
