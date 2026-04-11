@@ -82,20 +82,6 @@ Salesforce는 단일 트랜잭션에서 사용할 수 있는 리소스에 제한
 | DML 구문        | 트랜잭션당 150회 | List에 모아서 단건이 아닌 벌크로 insert                  |
 | Batch 처리 단위 | 200건            | `Database.executeBatch(new SurveyBatchScheduler(), 200)` |
 
-```apex
-// 나쁜 예 — 루프 안에서 DML (Governor Limit 위반)
-for (ServiceAppointment__c appt : scope) {
-    insert new CustomerSurvey__c(...);
-}
-
-// 좋은 예 — List에 모아서 한 번에 insert
-List<CustomerSurvey__c> surveys = new List<CustomerSurvey__c>();
-for (ServiceAppointment__c appt : scope) {
-    surveys.add(new CustomerSurvey__c(...));
-}
-insert surveys;
-```
-
 ## 화면 및 동작 확인
 
 ### 고객 차량 대시보드 (LWC)
