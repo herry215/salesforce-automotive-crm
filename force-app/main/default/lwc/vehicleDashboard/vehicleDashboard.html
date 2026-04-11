@@ -1,0 +1,20 @@
+<template>
+  <lightning-card title="고객 차량 대시보드" icon-name="standard:vehicle">
+    <div class="slds-p-around_medium">
+      <template if:true={vehicles.data}>
+        <template for:each={vehicles.data} for:item="vehicle">
+          <div key={vehicle.Id} class="slds-box slds-m-bottom_small">
+            <p><strong>모델:</strong> {vehicle.Model__c}</p>
+            <p><strong>VIN:</strong> {vehicle.VIN__c}</p>
+            <p><strong>연식:</strong> {vehicle.Year__c}</p>
+            <p><strong>상태:</strong> {vehicle.Status__c}</p>
+            <p><strong>출고일:</strong> {vehicle.DeliveryDate__c}</p>
+          </div>
+        </template>
+      </template>
+      <template if:true={vehicles.error}>
+        <p>데이터를 불러오는 중 오류가 발생했습니다.</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>
