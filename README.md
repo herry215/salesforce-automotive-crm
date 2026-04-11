@@ -20,7 +20,7 @@
 
 ## 데이터 모델 (ERD)
 
-<img src="docs/erd.png" width="600"/>
+<img src="docs/erd1.png" width="600"/>
 
 ## 구현 기능
 
