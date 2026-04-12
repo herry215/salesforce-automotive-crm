@@ -7,9 +7,19 @@
 현대오토에버 Salesforce 컨설팅팀 재직자의 조언을 참고하여
 실제 완성차 CRM 업무 프로세스를 기반으로 설계한 개인 학습 프로젝트입니다.
 
+표준 오브젝트(Asset, Lead, Opportunity, Case)를 우선 활용하는 방향으로 설계했으나,
+Developer Edition 환경 제약으로 일부 커스텀 오브젝트를 병행 사용했습니다.
+
 ## 프로젝트 소개 (PDF)
 
 👉 [프로젝트 전체 소개 보기 (Google Drive)](https://drive.google.com/file/d/1BzB90kuOVY3lfWXqsXnRTvRhS4zd5f2C/view?usp=sharing)
+
+## 개발 방식
+
+현대오토에버에서도 사내 폐쇄망에서 Claude AI를 도입했다는 소식을 접하고,
+이 프로젝트에서도 Claude를 페어 프로그래밍 파트너로 적극 활용했습니다.
+설계 방향 검토, 코드 리뷰, 오류 디버깅 전 과정에서 AI와 협업했으며,
+제안된 코드는 직접 이해하고 수정하여 Salesforce Org에 배포 및 동작을 확인했습니다.
 
 ## 기술 스택
 
