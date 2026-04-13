@@ -4,7 +4,7 @@ public with sharing class AssetDashboardController {
     return [
       SELECT Id, Name, SerialNumber, Status, Region__c, InstallDate, Product2Id
       FROM Asset
-      ORDER BY CreatedDate DESC
+      ORDER BY InstallDate DESC
       LIMIT 100
     ];
   }
