@@ -1,0 +1,18 @@
+<template>
+  <lightning-card title="차량 자산 현황" icon-name="standard:asset_object">
+    <div class="slds-p-around_medium">
+      <template if:true={assets}>
+        <lightning-datatable
+          key-field="Id"
+          data={assets}
+          columns={columns}
+          hide-checkbox-column
+        >
+        </lightning-datatable>
+      </template>
+      <template if:false={assets}>
+        <p>데이터가 없습니다.</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>

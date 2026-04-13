@@ -12,22 +12,25 @@ public with sharing class AiSummaryController {
       return '고객 의견이 아직 없습니다.';
     }
 
-    ConnectApi.EinsteinPromptTemplateGenerationsInput input = new ConnectApi.EinsteinPromptTemplateGenerationsInput();
-    input.additionalConfig = new ConnectApi.EinsteinLlmAdditionalConfigInput();
-    input.additionalConfig.applicationName = 'PromptTemplateGenerationsInvocable';
-    input.isPreview = false;
+    Map<String, String> recordIdMap = new Map<String, String>();
+    recordIdMap.put('id', surveyId);
 
-    Map<String, ConnectApi.WrappedValue> valueMap = new Map<String, ConnectApi.WrappedValue>();
+    ConnectApi.WrappedValue wrappedRecord = new ConnectApi.WrappedValue();
+    wrappedRecord.value = recordIdMap;
 
-    ConnectApi.WrappedValue feedbackValue = new ConnectApi.WrappedValue();
-    feedbackValue.value = survey.Feedback__c;
-    valueMap.put('Input:Feedback__c', feedbackValue);
+    Map<String, ConnectApi.WrappedValue> inputParams = new Map<String, ConnectApi.WrappedValue>();
+    inputParams.put('Input:customerSurvey', wrappedRecord);
 
-    input.inputParams = valueMap;
+    ConnectApi.EinsteinPromptTemplateGenerationsInput promptInput = new ConnectApi.EinsteinPromptTemplateGenerationsInput();
+    promptInput.additionalConfig = new ConnectApi.EinsteinLlmAdditionalConfigInput();
+    promptInput.additionalConfig.applicationName = 'PromptBuilderPreview';
+    promptInput.additionalConfig.numGenerations = 1;
+    promptInput.isPreview = false;
+    promptInput.inputParams = inputParams;
 
     ConnectApi.EinsteinPromptTemplateGenerationsRepresentation result = ConnectApi.EinsteinLLM.generateMessagesForPromptTemplate(
-      'Customer_Survey_Summary',
-      input
+      'Customer_Survey_Summary_Flex',
+      promptInput
     );
 
     return result.generations[0].text;

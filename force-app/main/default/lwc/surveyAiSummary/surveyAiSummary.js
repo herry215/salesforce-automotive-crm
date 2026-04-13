@@ -24,7 +24,6 @@ export default class SurveyAiSummary extends LightningElement {
         this.isLoading = false;
       })
       .catch((error) => {
-        this.summary = "AI 요약 생성 중 오류가 발생했습니다.";
         this.summaryHtml = "AI 요약 생성 중 오류가 발생했습니다.";
         this.isLoading = false;
         console.error(error);

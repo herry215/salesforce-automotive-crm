@@ -1,4 +1,4 @@
-public class SurveyBatchScheduler implements Database.Batchable<SObject>, Schedulable {
+public with sharing class SurveyBatchScheduler implements Database.Batchable<sObject>, Schedulable {
   public void execute(SchedulableContext sc) {
     Database.executeBatch(new SurveyBatchScheduler(), 200);
   }
@@ -7,33 +7,28 @@ public class SurveyBatchScheduler implements Database.Batchable<SObject>, Schedu
     Date sevenDaysAgo = Date.today().addDays(-7);
     return Database.getQueryLocator(
       [
-        SELECT Id, VehicleId__c
-        FROM ServiceAppointment__c
-        WHERE Status__c = '완료' AND AppointmentDate__c <= :sevenDaysAgo
+        SELECT Id, Status__c, SentDate__c
+        FROM CustomerSurvey__c
+        WHERE Status__c = '발송대기' AND CreatedDate <= :sevenDaysAgo
       ]
     );
   }
 
   public void execute(
     Database.BatchableContext bc,
-    List<ServiceAppointment__c> scope
+    List<CustomerSurvey__c> scope
   ) {
-    List<CustomerSurvey__c> surveysToInsert = new List<CustomerSurvey__c>();
-
-    for (ServiceAppointment__c appt : scope) {
-      CustomerSurvey__c survey = new CustomerSurvey__c();
-      survey.AppointmentId__c = appt.Id;
-      survey.SentDate__c = Date.today();
+    List<CustomerSurvey__c> toUpdate = new List<CustomerSurvey__c>();
+    for (CustomerSurvey__c survey : scope) {
       survey.Status__c = '발송완료';
-      surveysToInsert.add(survey);
+      survey.SentDate__c = Date.today();
+      toUpdate.add(survey);
     }
-
-    if (!surveysToInsert.isEmpty()) {
-      insert surveysToInsert;
+    if (!toUpdate.isEmpty()) {
+      update toUpdate;
     }
   }
 
   public void finish(Database.BatchableContext bc) {
-    System.debug('SurveyBatchScheduler 완료: ' + DateTime.now());
   }
 }

@@ -11,15 +11,12 @@
         </p>
       </template>
       <template if:false={isLoading}>
-        <template if:true={summary}>
+        <template if:true={summaryHtml}>
           <div class="slds-box slds-theme_shade">
             <lightning-formatted-rich-text
               value={summaryHtml}
             ></lightning-formatted-rich-text>
           </div>
-        </template>
-        <template if:false={summary}>
-          <p class="slds-text-color_weak">고객 의견이 없습니다.</p>
         </template>
       </template>
       <div class="slds-m-top_medium">
@@ -28,8 +25,7 @@
           onclick={generateSummary}
           variant="brand"
           icon-name="utility:einstein"
-        >
-        </lightning-button>
+        ></lightning-button>
       </div>
     </div>
   </lightning-card>
